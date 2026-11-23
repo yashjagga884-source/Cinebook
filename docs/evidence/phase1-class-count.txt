@@ -1,0 +1,9 @@
+Capture date: 2026-11-25 (Asia/Kolkata)
+
+Source directory: outputs/CineBookPrototype/src/cinebook
+Java source files: 20
+Top-level class declarations: 20
+Compiler: JDK 26, javac --release 21
+Build result: PASS
+
+The source names match the 20-class Phase 1 table in TASK.md. The count includes the abstract BookingRepository base class and excludes nested/member declarations.

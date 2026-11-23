@@ -1,0 +1,125 @@
+Capture date: 2026-11-25 (Asia/Kolkata)
+Build: javac --release 21 using JDK 26
+
+Booking file: D:\java2\docs\evidence\demo-bookings.csv
+
+========== CINEBOOK ==========
+1. Register
+2. Login
+3. Exit
+Choose an option: 
+========== CUSTOMER REGISTRATION ==========
+Name: Email: Password: Registration successful. You can now log in.
+
+========== CINEBOOK ==========
+1. Register
+2. Login
+3. Exit
+Choose an option: Email: Password: Welcome, Demo User!
+
+========== CUSTOMER MENU ==========
+1. Browse Movies
+2. Search Movies
+3. View Shows
+4. Book Tickets
+5. My Bookings
+6. Cancel Booking
+7. Logout
+Choose an option: 
+========== AVAILABLE MOVIES ==========
+[MOV001] Interstellar (English) | Genre: Sci-Fi | Duration: 169 min | Rating: 8.8
+[MOV002] The Dark Knight (English) | Genre: Action | Duration: 152 min | Rating: 9.0
+[MOV003] Inception (English) | Genre: Sci-Fi | Duration: 148 min | Rating: 8.8
+[MOV004] Avengers (English) | Genre: Action | Duration: 143 min | Rating: 8.0
+[MOV005] Spider-Man (English) | Genre: Action | Duration: 121 min | Rating: 7.5
+Select movie ID: 
+Cinemas showing Interstellar:
+[CIN001] PVR (Mumbai)
+Select cinema ID: 
+========== AVAILABLE SHOWS ==========
+[SH001] Interstellar | Cinema: PVR (Mumbai) | Screen: SCR001 | Date: 28-09-2026 | Time: 07:30 PM | Available: 40/40
+Select show ID: Seats for SH001 (O = available, X = booked):
+OA1 OA2 OA3 OA4 OA5 OA6 OA7 OA8 
+OB1 OB2 OB3 OB4 OB5 OB6 OB7 OB8 
+OC1 OC2 OC3 OC4 OC5 OC6 OC7 OC8 
+OD1 OD2 OD3 OD4 OD5 OD6 OD7 OD8 
+OE1 OE2 OE3 OE4 OE5 OE6 OE7 OE8 
+Enter seat numbers separated by commas (for example A1,A2): 
+========== BOOKING CONFIRMED ==========
+Booking ID: CB-4E5C04CF-BD99-4025-865C-390278EB0549
+Customer: Demo User
+Movie: Interstellar
+Cinema: PVR (Mumbai)
+Date / Time: 28-09-2026 07:30 PM
+Seats:
+  A1 - SILVER - Rs. 150.00
+  A2 - SILVER - Rs. 150.00
+Total: Rs. 300.00
+Status: CONFIRMED
+CSV save and reload verified.
+
+========== CUSTOMER MENU ==========
+1. Browse Movies
+2. Search Movies
+3. View Shows
+4. Book Tickets
+5. My Bookings
+6. Cancel Booking
+7. Logout
+Choose an option: 
+========== AVAILABLE MOVIES ==========
+[MOV001] Interstellar (English) | Genre: Sci-Fi | Duration: 169 min | Rating: 8.8
+[MOV002] The Dark Knight (English) | Genre: Action | Duration: 152 min | Rating: 9.0
+[MOV003] Inception (English) | Genre: Sci-Fi | Duration: 148 min | Rating: 8.8
+[MOV004] Avengers (English) | Genre: Action | Duration: 143 min | Rating: 8.0
+[MOV005] Spider-Man (English) | Genre: Action | Duration: 121 min | Rating: 7.5
+Select movie ID: 
+Cinemas showing Interstellar:
+[CIN001] PVR (Mumbai)
+Select cinema ID: 
+========== AVAILABLE SHOWS ==========
+[SH001] Interstellar | Cinema: PVR (Mumbai) | Screen: SCR001 | Date: 28-09-2026 | Time: 07:30 PM | Available: 38/40
+Select show ID: Seats for SH001 (O = available, X = booked):
+XA1 XA2 OA3 OA4 OA5 OA6 OA7 OA8 
+OB1 OB2 OB3 OB4 OB5 OB6 OB7 OB8 
+OC1 OC2 OC3 OC4 OC5 OC6 OC7 OC8 
+OD1 OD2 OD3 OD4 OD5 OD6 OD7 OD8 
+OE1 OE2 OE3 OE4 OE5 OE6 OE7 OE8 
+Enter seat numbers separated by commas (for example A1,A2): Booking failed: Seat A1 is already booked.
+
+========== CUSTOMER MENU ==========
+1. Browse Movies
+2. Search Movies
+3. View Shows
+4. Book Tickets
+5. My Bookings
+6. Cancel Booking
+7. Logout
+Choose an option: 
+========== BOOKING CONFIRMED ==========
+Booking ID: CB-4E5C04CF-BD99-4025-865C-390278EB0549
+Customer: Demo User
+Movie: Interstellar
+Cinema: PVR (Mumbai)
+Date / Time: 28-09-2026 07:30 PM
+Seats:
+  A1 - SILVER - Rs. 150.00
+  A2 - SILVER - Rs. 150.00
+Total: Rs. 300.00
+Status: CONFIRMED
+
+========== CUSTOMER MENU ==========
+1. Browse Movies
+2. Search Movies
+3. View Shows
+4. Book Tickets
+5. My Bookings
+6. Cancel Booking
+7. Logout
+Choose an option: Logged out.
+
+========== CINEBOOK ==========
+1. Register
+2. Login
+3. Exit
+Choose an option: Goodbye!

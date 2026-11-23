@@ -1,0 +1,4 @@
+Capture date: 2026-11-25 (Asia/Kolkata)
+Build: javac --release 21 using JDK 26
+
+PASS: CSV escape and reload, duplicate seat rejection, cancellation seat release, and rebooking.
