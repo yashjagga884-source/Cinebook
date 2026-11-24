@@ -1,0 +1,2 @@
+booking_id,customer_id,customer_name,customer_email,movie_id,movie_name,cinema_id,cinema_name,show_id,show_date,show_time,total_price,booked_at,cancelled,seats
+CB-4E5C04CF-BD99-4025-865C-390278EB0549,CUS001,Demo User,demo@example.test,MOV001,Interstellar,CIN001,PVR,SH001,28-09-2026,07:30 PM,300.0,2026-11-25T02:21:19.189585800,false,A1:SILVER:150.0;A2:SILVER:150.0
