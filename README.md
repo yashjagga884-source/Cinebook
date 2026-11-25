@@ -51,31 +51,34 @@ Cinebook/
 
 - **Java Development Kit (JDK) 21 LTS or later**
 
-## Getting Started
+## Quick Run (One-Line Commands)
 
-### 1. Run the Phase 1 Prototype (Recommended)
+Compiled `.class` files are already included in `out/` and `outputs/CineBookPrototype/out/`, so you can launch immediately from the repository root in PowerShell:
 
-From `outputs/CineBookPrototype`:
+- **Phase 1 Prototype (Recommended):**
+  ```powershell
+  cd outputs/CineBookPrototype; java -cp out cinebook.CineBookMain
+  ```
+- **Root Application:**
+  ```powershell
+  java -cp out Main
+  ```
 
-```powershell
-javac --release 21 -d out src\cinebook\*.java
-java -cp out cinebook.CineBookMain
-```
+### Compile & Run from Source (One-Line)
 
-- Default booking store: `outputs/CineBookPrototype/data/bookings.txt`
-- Restores active bookings and occupied seats on startup.
-- Set `CINEBOOK_BOOKINGS_FILE` to override the booking file path.
+If you modify `.java` files, compile and run in one line (PowerShell):
 
-### 2. Run the Root Application
+- **Phase 1 Prototype:**
+  ```powershell
+  cd outputs/CineBookPrototype; javac --release 21 -d out src\cinebook\*.java; if ($?) { java -cp out cinebook.CineBookMain }
+  ```
+  - Default booking store: `outputs/CineBookPrototype/data/bookings.txt` (restores active bookings and occupied seats on startup; override with `CINEBOOK_BOOKINGS_FILE`).
 
-From the repository root:
-
-```powershell
-javac --release 21 -d out src\Main.java src\model\*.java src\manager\*.java src\util\*.java
-java -cp out Main
-```
-
-- Default booking store: `data/bookings.csv` (overridable via `CINEBOOK_BOOKINGS_FILE`).
+- **Root Application:**
+  ```powershell
+  javac --release 21 -d out src\Main.java src\model\*.java src\manager\*.java src\util\*.java; if ($?) { java -cp out Main }
+  ```
+  - Default booking store: `data/bookings.csv` (override with `CINEBOOK_BOOKINGS_FILE`).
 
 ## Documentation & Validation Evidence
 
