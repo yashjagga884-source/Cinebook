@@ -1,0 +1,1 @@
+booking_id,customer_id,customer_name,customer_email,movie_id,movie_name,cinema_id,cinema_name,show_id,show_date,show_time,total_price,booked_at,cancelled,seats

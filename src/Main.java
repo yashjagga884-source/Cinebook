@@ -1,9 +1,10 @@
-import model.*;
-import manager.BookingManager;
-import util.FileBookingRepository;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
+import manager.BookingManager;
+import model.*;
+import util.FileBookingRepository;
+import util.FileCustomerRepository;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
@@ -13,10 +14,13 @@ public class Main {
     private static final List<Show> shows = new ArrayList<>();
     private static final Map<String, Customer> customersByEmail = new LinkedHashMap<>();
     private static BookingManager bookingManager;
+    private static FileCustomerRepository customerRepository;
     private static int nextCustomerId = 1;
 
     public static void main(String[] args) {
         bookingManager = createBookingManager();
+        customerRepository = createCustomerRepository();
+        loadSavedCustomers();
         initializeSampleData();
         while (true) {
             System.out.println("\n========== CINEBOOK ==========");
@@ -40,6 +44,36 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Booking file unavailable; this run will keep bookings in memory only. Details: " + ex.getMessage());
             return new BookingManager();
+        }
+    }
+
+    private static FileCustomerRepository createCustomerRepository() {
+        try {
+            String filePath = System.getenv().getOrDefault("CINEBOOK_CUSTOMERS_FILE", "data/customers.csv");
+            FileCustomerRepository repository = new FileCustomerRepository(Paths.get(filePath));
+            System.out.println("Customer file: " + Paths.get(filePath).toAbsolutePath().normalize());
+            return repository;
+        } catch (IOException ex) {
+            System.out.println("Customer file unavailable; accounts will remain in memory only. Details: " + ex.getMessage());
+            return null;
+        }
+    }
+
+    private static void loadSavedCustomers() {
+        if (customerRepository == null) return;
+        try {
+            for (Customer customer : customerRepository.loadAll()) {
+                customersByEmail.put(customer.getEmail().toLowerCase(Locale.ROOT), customer);
+                String id = customer.getUserId();
+                if (id != null && id.startsWith("CUS")) {
+                    try {
+                        int num = Integer.parseInt(id.substring(3));
+                        if (num >= nextCustomerId) nextCustomerId = num + 1;
+                    } catch (NumberFormatException ignored) { }
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println("Could not load saved customers: " + ex.getMessage());
         }
     }
 
@@ -84,7 +118,16 @@ public class Main {
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) { System.out.println("All fields are required."); return; }
         if (!email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) { System.out.println("Enter a valid email address."); return; }
         if (customersByEmail.containsKey(email)) { System.out.println("An account with that email already exists."); return; }
-        Customer customer = new Customer(String.format("CUS%03d", nextCustomerId++), name, email, password);
+        Customer customer = new Customer(String.format("CUS%03d", nextCustomerId), name, email, password);
+        if (customerRepository != null) {
+            try {
+                customerRepository.save(customer);
+            } catch (IOException ex) {
+                System.out.println("Registration failed: could not save account (" + ex.getMessage() + ").");
+                return;
+            }
+        }
+        nextCustomerId++;
         customersByEmail.put(email, customer);
         System.out.println("Registration successful. You can now log in.");
     }

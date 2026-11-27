@@ -16,5 +16,6 @@ public abstract class User {
     public String getUserId() { return userId; }
     public String getName() { return name; }
     public String getEmail() { return email; }
+    public String getPassword() { return password; }
     public boolean authenticate(String candidate) { return password.equals(candidate); }
 }
